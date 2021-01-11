@@ -1,5 +1,5 @@
 <?php 
-
+    include_once 'core/Database.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
