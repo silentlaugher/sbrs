@@ -1,20 +1,34 @@
 <?php 
     // db connection
     include_once 'core/Database.php';
+    // utility file
+    include_once 'core/utilities.php';
+
     // process the form
     if(isset($_POST['registerBtn'])) {
         //initialize an array to store error messages
         $form_errors = array();
 
         // form validation
-        $required_fields = array('firstName', 'lastName', 'username', 'email', 'password', 'confirm_password', 'gender', 'month', 'day', 'year');
+        $required_fields = array('first_name', 'last_name', 'username', 'email', 'password', 'confirm_password', 'gender', 'month', 'day', 'year');
 
-        //loop through required fields array
-        foreach($required_fields as $name_of_field){
-            if(!isset($_POST[$name_of_field]) || $_POST[$name_of_field] == NULL){
-                $form_errors[] = $name_of_field . " is a required field";
-            }
-        }
+        //call the function to check empty field and merge the return data into form_error array
+        $form_errors = array_merge($form_errors, check_empty_fields($required_fields));
+
+        //Fields that requires checking for minimum length
+        $fields_to_check_length = array('first_name' => 2, 'last_name' => 2, 'username' => 2, 'password' => 8, 'confirm_password' =>8);
+
+        //Fields that requires checking for maximum length
+        $fields_to_check_max_length = array('first_name' =>15 , 'last_name' =>15 , 'username' => 30, 'password' => 30, 'confirm_password' => 25);
+
+        //call the function to check minimum required length and merge the return data into form_error array
+        $form_errors = array_merge($form_errors, check_min_length($fields_to_check_length));
+
+        //call the function to check maximum required length and merge the return data into form_error array
+        $form_errors = array_merge($form_errors, check_max_length($fields_to_check_max_length));
+    
+        //email validation / merge the return data into form_error array
+        $form_errors = array_merge($form_errors, check_email($_POST));
 
         //check if error arry is empty, if yes proceed with insert record
         if(empty($form_errors)){
@@ -37,7 +51,7 @@
 
         try{
             // create SQL insert statement
-            $sqlInsert = "INSERT INTO users (firstName, lastName, username, email, password, gender, birthday, joined)
+            $sqlInsert = "INSERT INTO users (first_name, last_name, username, email, password, gender, birthday, joined)
                         VALUES (:firstName, :lastName, :username, :email, :password, :gender, :birthday, now())";
 
             // use PDO prepared to sanitize data
@@ -47,7 +61,7 @@
             $statement = $db->prepare($sqlInsert);
 
             // add the data into the database
-            $statement->execute(array(':firstName' => $firstName,':lastName' => $lastName,':username' => $username, ':email' => $email, ':password' => $hashedPassword, ':gender' => $gender, ':birthday' => $birthday));
+            $statement->execute(array(':first_name' => $firstName,':last_name' => $lastName,':username' => $username, ':email' => $email, ':password' => $hashedPassword, ':gender' => $gender, ':birthday' => $birthday));
 
             //check if one new row was created
             if($statement->rowCount() == 1){
@@ -63,27 +77,12 @@
         if(count($form_errors) == 1){
             $result = "<p style='color: red;'> There was 1 error in the form<br>";
 
-            $result .= "<ul style='color: red;'>";
-            //loop through error array and display all items
-            foreach($form_errors as $error){
-                $result .= "<li>{$error}</li>";
-            }
-            $result .= "</ul></p>";
-                
         }else{
             $result ="<p style='color: red;'> There were " .count($form_errors). " errors in the form<br>";
-            
-            $result .= "<ul style='color: red;'>";
-            //loop through and display all errors in array
-            foreach($form_errors as $error){
-                $result .= "<li>{$error}</li>";
-            }
-            $result .= "</ul></p>";
+
             }
         }
     }
-
-
 
 ?>
 <!DOCTYPE html>
@@ -104,8 +103,8 @@
         <table>
             <div class="name">
                 <h5>Name</h5>
-                <tr><input type="text" name="firstName" class="form-group" placeholder="First Name" value="">
-                <input type="text" name="lastName" class="form-group" placeholder="Last Name" value=""></tr>																	
+                <tr><input type="text" name="first_name" class="form-group" placeholder="First Name" value="">
+                <input type="text" name="last_name" class="form-group" placeholder="Last Name" value=""></tr>																	
             </div>        
             <div>
                 <h5>Username</h5>
