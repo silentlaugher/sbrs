@@ -16,10 +16,10 @@
         $form_errors = array_merge($form_errors, check_empty_fields($required_fields));
 
         //Fields that requires checking for minimum length
-        $fields_to_check_length = array('first_name' => 2, 'last_name' => 2, 'username' => 2, 'password' => 8, 'confirm_password' =>8);
+        $fields_to_check_length = array('first_name' => 2, 'last_name' => 2, 'username' => 4, 'password' => 8, 'confirm_password' =>8);
 
         //Fields that requires checking for maximum length
-        $fields_to_check_max_length = array('first_name' =>15 , 'last_name' =>15 , 'username' => 30, 'password' => 30, 'confirm_password' => 25);
+        $fields_to_check_max_length = array('first_name' =>15 , 'last_name' =>15 , 'username' => 30, 'password' => 30, 'confirm_password' => 30);
 
         //call the function to check minimum required length and merge the return data into form_error array
         $form_errors = array_merge($form_errors, check_min_length($fields_to_check_length));
@@ -31,7 +31,7 @@
         $form_errors = array_merge($form_errors, check_email($_POST));
 
         //password validation / merge the return data into form_error array
-        $form_errors = array_merge($form_errors, check_passwords());
+        $form_errors = array_merge($form_errors, check_passwords()); 
 
         //check if error arry is empty, if yes proceed with insert record
         if(empty($form_errors)){
@@ -55,7 +55,7 @@
         try{
             // create SQL insert statement
             $sqlInsert = "INSERT INTO users (first_name, last_name, username, email, password, gender, birthday, joined)
-                        VALUES (:firstName, :lastName, :username, :email, :password, :gender, :birthday, now())";
+                        VALUES (:first_name, :last_name, :username, :email, :password, :gender, :birthday, now())";
 
             // use PDO prepared to sanitize data
             $statement = $db->prepare($sqlInsert);
@@ -68,11 +68,11 @@
 
             //check if one new row was created
             if($statement->rowCount() == 1){
-                $result = "<p style='padding: 20px; color: green;'> Registration Successful!</p>";
+                $result = "<p style='padding: 20px; border: 1px solid gray; color: green;'> Registration Successful!</p>";
             }
 
         }catch (PDOException $ex){
-            $result = "<p style='padding: 20px; color: red;'> An error occured: ".$ex->getMessage()."</p>";
+            $result = "<p style='padding: 20px; border: 1px solid gray; color: red;'> An error occured: ".$ex->getMessage()."</p>";
         }
     }
 
