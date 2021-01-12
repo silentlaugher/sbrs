@@ -77,7 +77,23 @@
     }
     return $form_errors;
     }
-    
+    /**
+ * password validation, check that password fields match
+ */
+function check_passwords(){
+    //initialize an array to store error messages
+    $form_errors = array();
+    $key = 'password';
+    $key2 = 'confirm_password';
+
+    //check if the password fields match
+    if ($_POST['password'] !== $_POST['confirm_password']) {
+        $form_errors[] = " Your password fields do not match";
+    }
+    return $form_errors;
+
+}
+
 
     /**
      * @param $form_errors_array, the array holding all

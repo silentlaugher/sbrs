@@ -30,6 +30,9 @@
         //email validation / merge the return data into form_error array
         $form_errors = array_merge($form_errors, check_email($_POST));
 
+        //password validation / merge the return data into form_error array
+        $form_errors = array_merge($form_errors, check_passwords());
+
         //check if error arry is empty, if yes proceed with insert record
         if(empty($form_errors)){
 
@@ -98,6 +101,7 @@
     <h3>Registration Form</h3>
 
     <?php if(isset($result)) echo $result; ?>
+    <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
 
     <form action="register.php" method="POST">
         <table>
