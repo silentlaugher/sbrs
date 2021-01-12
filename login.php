@@ -68,6 +68,7 @@
             <tr><input type="text" name="email" class="form-control" placeholder="Email"></tr>
             <h5>Password</h5>
             <tr><input type="password" name="password" class="form-control" placeholder="Password"></tr>
+            <p class="forgotPasswordMessage">Forgot password?<a href="forgot_password.php"> Click here</a></p>
             <br>
             <div class="btn-div">
             <tr><input type="submit" style="margin-left: 115px;" name="loginBtn" value="Login" /></tr> 
