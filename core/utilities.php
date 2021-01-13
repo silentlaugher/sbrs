@@ -78,22 +78,21 @@
     return $form_errors;
     }
     /**
- * password validation, check that password fields match
- */
-function check_passwords(){
-    //initialize an array to store error messages
-    $form_errors = array();
-    $key = 'password';
-    $key2 = 'confirm_password';
+    * password validation, check that password fields match
+    */
+    function check_passwords(){
+        //initialize an array to store error messages
+        $form_errors = array();
+        $key = 'password';
+        $key2 = 'confirm_password';
 
-    //check if the password fields match
-    if ($_POST['password'] !== $_POST['confirm_password']) {
-        $form_errors[] = " Your password fields do not match";
+        //check if the password fields match
+        if ($_POST['password'] !== $_POST['confirm_password']) {
+            $form_errors[] = " Your password fields do not match";
+        }
+        return $form_errors;
+
     }
-    return $form_errors;
-
-}
-
 
     /**
      * @param $form_errors_array, the array holding all
@@ -112,22 +111,40 @@ function check_passwords(){
     }
 
     /**
- * flashMessage function
- */
-function flashMessage($message, $passOrFail = "Fail"){
-    if($passOrFail === "Pass"){
-        $data = "<p style='padding: 20px; border: 1px solid gray; color: green;'>{$message}</p>";
-    }else{
-        $data = "<p style='padding: 20px; border: 1px solid gray; color: red;'>{$message}</p>";
+    * flashMessage function
+    */
+    function flashMessage($message, $passOrFail = "Fail"){
+        if($passOrFail === "Pass"){
+            $data = "<p style='padding: 20px; border: 1px solid gray; color: green;'>{$message}</p>";
+        }else{
+            $data = "<p style='padding: 20px; border: 1px solid gray; color: red;'>{$message}</p>";
+        }
+        return $data;
     }
-    return $data;
-}
 
-/**
- * redirect function
- **/ 
-function redirectTo($page){
-    header("Location: {$page}.php");
-}
+    /**
+     * redirect function
+     **/ 
+    function redirectTo($page){
+        header("Location: {$page}.php");
+    }
 
+    /**
+     * check for duplicate email and usernames
+     */
+    function checkDuplicates($table, $column_name, $value, $db) {
+        try{
+            $sqlQuery = "SELECT * FROM $table WHERE $column_name = :$column_name";
+            $statement = $db->prepare($sqlQuery);
+            $statement->execute(array(":$column_name" => $value));
+
+            if($row = $statement->fetch()){
+                return true;
+            }
+            return false;
+
+        }catch (PDOException $ex){
+            //handle exception
+        }
+    }
 ?>

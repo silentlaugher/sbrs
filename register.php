@@ -31,11 +31,8 @@
         $form_errors = array_merge($form_errors, check_email($_POST));
 
         //password validation / merge the return data into form_error array
-        $form_errors = array_merge($form_errors, check_passwords()); 
-
-        //check if error arry is empty, if yes proceed with insert record
-        if(empty($form_errors)){
-
+        $form_errors = array_merge($form_errors, check_passwords());
+        
         // collect form data and store in variables
         $firstName = $_POST['first_name'];
         $lastName = $_POST['last_name'];
@@ -49,6 +46,17 @@
         $year = $_POST['year'];
         $birthday = "{$year}-{$month}-{$day}";
 
+        // check for duplicate username
+        if(checkDuplicates("users", "email", $email, $db)){
+            $result = flashMessage("Error, that email has already been registered. Use a different one");
+        }
+        //check for duplicate email
+        else if(checkDuplicates("users", "username", $username, $db)){
+            $result = flashMessage("That username is already taken. Please try a different one");
+        }
+
+        //check if error arry is empty, if yes proceed with insert record
+        else if(empty($form_errors)){
         // encrypt the password 
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
