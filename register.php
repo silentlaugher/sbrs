@@ -99,7 +99,7 @@
     }
 
 ?>
-    <h1>Security Based Registration System</h1>
+    <h1>Edynak Security Based Registration System</h1>
     <hr>
     <h3>Registration Form</h3>
 

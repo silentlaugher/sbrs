@@ -49,25 +49,29 @@
     }
     
 ?>
-    <hr>
-    <h3>Login Form</h3>
+    <div class="container">
+        <section class="col col-lg-7">
+        <h1>Edynak Security Based Registration System</h1>
+        <hr>
+        <h3>Login Form</h3>
+        <hr>
+        <?php if(isset($result)) echo $result; ?>
+        <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
 
-    <?php if(isset($result)) echo $result; ?>
-    <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
-
-    <form action="login.php" method="POST">
-        <table>
-            <h5>Email</h5>
-            <tr><input type="text" name="email" class="form-control" placeholder="Email"></tr>
-            <h5>Password</h5>
-            <tr><input type="password" name="password" class="form-control" placeholder="Password"></tr>
-            <p class="forgotPasswordMessage">Forgot password?<a href="forgot_password.php"> Click here</a></p>
-            <br>
-            <div class="btn-div">
-            <tr><input type="submit" style="margin-left: 115px;" name="loginBtn" value="Login" /></tr> 
-            </div>
-        </table>
-    </form>
-    <p>Not yet a member?<a href="register.php"> Register here</a></p>
-    <p><a href="index.php">Back</a></p>
+        <form action="login.php" method="POST">
+            <table>
+                <h5>Email</h5>
+                <tr><input type="text" name="email" class="form-control" placeholder="Your address here"></tr>
+                <h5>Password</h5>
+                <tr><input type="password" name="password" class="form-control" placeholder="Enter your password"></tr>
+                <p class="forgotPassword">Forgot password?<a href="forgot_password.php"> Click here</a></p>
+                <div class="btn-div">
+                <input type="submit" style="margin-left: 115px;" name="loginBtn" value="Login" /> 
+                </div>
+            </table>
+        </form>
+        <p class="not">Not yet a member?<a href="register.php"> Register here</a></p>
+        <p class="back"><a href="index.php">Back</a></p>
+            </section>
+        </div>
 <?php include_once 'partials/footers.php'; ?>
