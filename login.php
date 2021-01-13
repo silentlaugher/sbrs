@@ -33,15 +33,14 @@
                     $_SESSION['username'] = $username;
                     header("location: index.php");
                 }else{
-                    $result = "<p style='padding: 20px; color: red; border: 1px solid gray;'> Invalid email or password</p>";
+                    $result = flashMessage("Your credentials are incorrect. Invalid email or password");
                 }
-
             }
         }else{
             if(count($form_errors) == 1){
-                $result = "<p style='color: red;'>There was one error in the form</p>";
+                $result = flashMessage("There was one error in the form");
             }else{
-                $result = "<p style='color: red;'>There were " .count($form_errors). " errors in the form</p>";
+                $result = flashMessage("There were " .count($form_errors). " errors in the form");
             }
         }
     }

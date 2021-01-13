@@ -68,20 +68,20 @@
 
             //check if one new row was created
             if($statement->rowCount() == 1){
-                $result = "<p style='padding: 20px; border: 1px solid gray; color: green;'> Registration Successful!</p>";
+                $result = flashMessage("Registration Successful!", "Pass");
             }
 
         }catch (PDOException $ex){
-            $result = "<p style='padding: 20px; border: 1px solid gray; color: red;'> An error occured: ".$ex->getMessage()."</p>";
+            $result = flashMessage("An error occurred: " .$ex->getMessage());
         }
     }
 
     else{
         if(count($form_errors) == 1){
-            $result = "<p style='color: red;'> There was 1 error in the form<br>";
+            $result = flashMessage("There was 1 error in the form<br>");
 
         }else{
-            $result ="<p style='color: red;'> There were " .count($form_errors). " errors in the form<br>";
+            $result = flashMessage("There were " .count($form_errors). " errors in the form<br>");
 
             }
         }

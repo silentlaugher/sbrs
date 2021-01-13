@@ -57,22 +57,22 @@ if(isset($_POST['passwordResetBtn'])){
                     //execute the statement
                     $statement->execute(array(':password' => $hashed_password, ':email' => $email));
 
-                    $result = "<p style='padding:20px; border: 1px solid gray; color: green;'> Password Reset Successful</p>";
+                    $result = flashMessage("Password Reset Successful", "Pass");
                 }
                 else{
-                    $result = "<p style='padding:20px; border: 1px solid gray; color: red;'> The email address provided
-                                does not exist in our database, please try again</p>";
+                    $result =  flashMessage("The email address provided
+                                does not exist in our database, please try again");
                 }
             }catch (PDOException $ex){
-                $result = "<p style='padding:20px; border: 1px solid gray; color: red;'> An error occurred: ".$ex->getMessage()."</p>";
+                $result = flashMessage("An error occurred: " .$ex->getMessage());
             }
         }
     }
     else{
         if(count($form_errors) == 1){
-            $result = "<p style='color: red;'> There was 1 error in the form<br>";
+            $result = flashMessage("There was 1 error in the form<br>");
         }else{
-            $result = "<p style='color: red;'> There were " .count($form_errors). " errors in the form <br>";
+            $result = flashMessage("There were " .count($form_errors). " errors in the form<br>");
         }
     }
 }
