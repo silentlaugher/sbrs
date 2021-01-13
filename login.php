@@ -31,7 +31,7 @@
                     $_SESSION['id'] = $id;
                     $_SESSION['email'] = $email;
                     $_SESSION['username'] = $username;
-                    header("location: index.php");
+                    redirectTo('index');
                 }else{
                     $result = flashMessage("Your credentials are incorrect. Invalid email or password");
                 }

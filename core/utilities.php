@@ -121,5 +121,13 @@ function flashMessage($message, $passOrFail = "Fail"){
         $data = "<p style='padding: 20px; border: 1px solid gray; color: red;'>{$message}</p>";
     }
     return $data;
-} 
+}
+
+/**
+ * redirect function
+ **/ 
+function redirectTo($page){
+    header("Location: {$page}.php");
+}
+
 ?>
