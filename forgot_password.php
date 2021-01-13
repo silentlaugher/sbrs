@@ -1,9 +1,12 @@
 <?php 
     include_once 'core/Database.php';
     include_once 'core/utilities.php';
+    include_once 'partials/headers.php';
+    include_once 'partials/nav.php';
+    $page_title = "Edynak Security Based Registration System - Reset Password -";
 
     //process the form if the reset password button is clicked
-if(isset($_POST['passwordResetBtn'])){
+    if(isset($_POST['passwordResetBtn'])){
     //initialize an array to store any error message from the form
     $form_errors = array();
 
@@ -77,15 +80,6 @@ if(isset($_POST['passwordResetBtn'])){
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Forgot Password Page</title>
-</head>
-<body>
-<h1>Security Based Registration System</h1>
 <hr>
 <div class="container">
     <section class="col col-lg-7">
@@ -116,5 +110,4 @@ if(isset($_POST['passwordResetBtn'])){
     </section>
     <p><a href="index.php">Back</a> </p>
 </div>
-</body>
-</html>
+<?php include_once 'partials/footers.php'; ?>

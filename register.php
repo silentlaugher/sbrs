@@ -3,6 +3,9 @@
     include_once 'core/Database.php';
     // utility file
     include_once 'core/utilities.php';
+    include_once 'partials/headers.php';
+    include_once 'partials/nav.php';
+    $page_title = "Edynak Security Based Registration System - Register Page -";
 
     // process the form
     if(isset($_POST['registerBtn'])) {
@@ -96,14 +99,6 @@
     }
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Registration Page</title>
-</head>
-<body>
     <h1>Security Based Registration System</h1>
     <hr>
     <h3>Registration Form</h3>
@@ -307,5 +302,4 @@
     </form>
     <p>Already have an account?<a href="login.php"> Sign in</a></p>
     <p><a href="index.php">Back</a></p> 
-</body>
-</html>
+<?php include_once 'partials/footers.php'; ?>

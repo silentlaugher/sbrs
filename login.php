@@ -2,6 +2,9 @@
     include_once 'core/session.php';
     include_once 'core/Database.php';
     include_once 'core/utilities.php';
+    include_once 'partials/headers.php';
+    include_once 'partials/nav.php';
+    $page_title = "Edynak Security Based Registration System - Sign In Page -";
 
     if(isset($_POST['loginBtn'])){
         // array to hold errors
@@ -46,15 +49,6 @@
     }
     
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Login Page</title>
-</head>
-<body>
-    <h1>Security Based Registration System</h1>
     <hr>
     <h3>Login Form</h3>
 
@@ -76,5 +70,4 @@
     </form>
     <p>Not yet a member?<a href="register.php"> Register here</a></p>
     <p><a href="index.php">Back</a></p>
-</body>
-</html>
+<?php include_once 'partials/footers.php'; ?>
