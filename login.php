@@ -55,23 +55,30 @@
         <hr>
         <h3>Login Form</h3>
         <hr>
+        <br>
         <?php if(isset($result)) echo $result; ?>
         <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
 
         <form action="login.php" method="POST">
-            <table>
-                <h5>Email</h5>
-                <tr><input type="text" name="email" class="form-control" placeholder="Your address here"></tr>
-                <h5>Password</h5>
-                <tr><input type="password" name="password" class="form-control" placeholder="Enter your password"></tr>
-                <p class="forgotPassword">Forgot password?<a href="forgot_password.php"> Click here</a></p>
-                <div class="btn-div">
-                <input type="submit" style="margin-left: 115px;" name="loginBtn" value="Login" /> 
-                </div>
-            </table>
-        </form>
-        <p class="not">Not yet a member?<a href="register.php"> Register here</a></p>
-        <p class="back"><a href="index.php">Back</a></p>
+            <div class="form-group">
+                <label for="emailField" class="form-label">Email Address</label>
+                <input type="text" class="form-control" name="email" id="emailField" placeholder="Enter your address">
+                <div id="emailMessage" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="form-group">
+                <label for="passwordField" class="form-label">Password</label>
+                <input type="password" class="form-control" neme="password" id="passwordField" placeholder="Enter your password">
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input name="remember" type="checkbox"> Remember me
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary pull-right" name="loginBtn" id="loginBtn">Sign in</button>
+            <p class="forgotPassword">Forgot password?<a href="forgot_password.php"> Click here</a></p>
+            <p class="not">Not yet a member?<a href="register.php"> Register here</a></p>
+            <p class="back"><a href="index.php">Back</a></p>
+            </form>
             </section>
         </div>
 <?php include_once 'partials/footers.php'; ?>
