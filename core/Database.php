@@ -1,4 +1,5 @@
 <?php 
+    //intialize connection parameter variables
     $user = 'root';
     $dsn = 'mysql:host=localhost; dbname=sbrs';
     $dbPassword = '';
