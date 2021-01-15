@@ -76,9 +76,9 @@
             </div>
             <button type="submit" class="btn btn-primary pull-right" name="loginBtn" id="loginBtn">Sign in</button>
             <p class="forgotPassword">Forgot password?<a href="forgot_password.php"> Click here</a></p>
-            <p class="not">Not yet a member?<a href="register.php"> Register here</a></p>
-            <p class="back"><a href="index.php">Back</a></p>
             </form>
             </section>
+            <p class="not">Not yet a member?<a href="register.php"> Register here</a></p>
+            <p class="back"><a href="index.php">Back</a></p>
         </div>
 <?php include_once 'partials/footers.php'; ?>

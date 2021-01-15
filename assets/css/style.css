@@ -1,6 +1,14 @@
 body {
     padding: 70px;
+    background-color: #657786;
 }
+
+.flag{
+    padding: 80px 15px;
+    text-align: center;
+}
+
+/* login page */
 .forgotPassword{
     margin-top: 40px;
     text-align: left;
@@ -19,3 +27,27 @@ body {
     text-align: center;
 }
 
+/* register page */
+
+.regContainer{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.regContainer .regColumn{
+    background-color: #AAB8C2;
+    flex-grow: 0;
+    width: 100vh;
+    padding: 20px 35px;
+    max-height: 100%;
+}
+
+.regContainer .regColumn .regHeader h3{
+    text-align: center;
+}
+.rBack{
+    text-align: center;
+    margin-top: -30px;
+}
