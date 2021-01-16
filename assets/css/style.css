@@ -9,6 +9,36 @@ body {
 }
 
 /* login page */
+
+.logContainer{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logContainer .logColumn{
+    background-color: #AAB8C2;
+    flex-grow: 0;
+    width: 100vh;
+    padding: 20px 35px;
+    max-height: 100%;
+}
+
+.logContainer .logColumn .logHeader {
+    text-align: center;
+    align-items: center;
+}
+
+.logContainer .logColumn .logHeader h3{
+    text-align: center;
+}
+.logContainer .logColumn .logForm .lBack {
+    float: right;
+    margin-right: 50px;
+    margin-top: -28px;
+}
+
 .forgotPassword{
     margin-top: 40px;
     text-align: left;
@@ -17,10 +47,11 @@ body {
     margin-top: -90px;
    margin-left: 165px;
 }
-.back{
+.lBack{
     float: right;
+    padding-right: 100px;
     margin-right: 50px;
-    margin-top: -28px;
+    margin-top: -35px;
 }
 .flag{
     padding: 80px 15px;
@@ -50,4 +81,30 @@ body {
 .rBack{
     text-align: center;
     margin-top: -30px;
+}
+
+/* reset page */
+
+.resetContainer{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resetContainer .resetColumn{
+    background-color: #AAB8C2;
+    flex-grow: 0;
+    width: 100vh;
+    padding: 20px 35px;
+    max-height: 100%;
+}
+
+.resetContainer .resetColumn .resetHeader {
+    text-align: center;
+    align-items: center;
+}
+
+.resetContainer .resetColumn .resetHeader h3{
+    text-align: center;
 }

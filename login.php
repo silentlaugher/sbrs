@@ -49,36 +49,39 @@
     }
     
 ?>
-    <div class="container">
-        <section class="col col-lg-7">
-        <h1>Edynak Security Based Registration System</h1>
-        <hr>
-        <h3>Login Form</h3>
-        <hr>
-        <br>
-        <?php if(isset($result)) echo $result; ?>
-        <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
-
-        <form action="login.php" method="POST">
-            <div class="form-group">
-                <label for="emailField" class="form-label">Email Address</label>
-                <input type="text" class="form-control" name="email" id="emailField" placeholder="Enter your address">
-                <div id="emailMessage" class="form-text">We'll never share your email with anyone else.</div>
+    <div class="logContainer">
+        <div class="logColumn">
+            <div class="logHeader">
+            <h1>Edynak Security Based Registration System</h1>
+                <hr>
+                <h3>Login Form</h3>
+                <br>
+                <?php if(isset($result)) echo $result; ?>
+                <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
             </div>
-            <div class="form-group">
-                <label for="passwordField" class="form-label">Password</label>
-                <input type="password" class="form-control" neme="password" id="passwordField" placeholder="Enter your password">
+            <div class="logForm">
+                <form action="login.php" method="POST">
+                <div>
+                    <label for="emailField" class="form-label">Email or Username</label>
+                    <input type="text" class="form-control" name="email" id="emailField" placeholder="Enter your address or username">
+                    <div id="emailMessage" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <br>
+                <div>
+                    <label for="passwordField" class="form-label">Password</label>
+                    <input type="password" class="form-control" neme="password" id="passwordField" placeholder="Enter your password">
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input name="remember" type="checkbox"> Remember me
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary pull-right" name="loginBtn" id="loginBtn">Sign in</button>
+                <p class="forgotPassword">Forgot password?<a href="forgot_password.php"> Click here</a></p>
+                Not yet a member?<a href="register.php"> Register here</a>
+                <p class="lBack"><a href="index.php">Back</a></p>
+                </form>
             </div>
-            <div class="checkbox">
-                <label>
-                    <input name="remember" type="checkbox"> Remember me
-                </label>
-            </div>
-            <button type="submit" class="btn btn-primary pull-right" name="loginBtn" id="loginBtn">Sign in</button>
-            <p class="forgotPassword">Forgot password?<a href="forgot_password.php"> Click here</a></p>
-            </form>
-            </section>
-            <p class="not">Not yet a member?<a href="register.php"> Register here</a></p>
-            <p class="back"><a href="index.php">Back</a></p>
         </div>
+    </div> 
 <?php include_once 'partials/footers.php'; ?>

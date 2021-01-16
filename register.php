@@ -114,11 +114,11 @@
                 <form action="register.php" method="POST">
                     <table>
                         <div class="name" style="float: left;">
-                            <h5>First Name</h5>
+                        <label for="firstNameField" class="form-label">First Name</label>
                             <input type="text" name="first_name"  placeholder="First Name" class="form-control" value="" style="width: 350px;">
                         </div>
                         <div class="lName" style="float: right;">
-                            <h5>Last Name</h5>
+                        <label for="lastNameField" class="form-label">Last Name</label>
                             <input type="text" name="last_name"  placeholder="Last Name" class="form-control" value="" style="width: 350px;"> 
                         </div>
                         <br>
@@ -126,21 +126,21 @@
                         <br>
                         <br>
                         <div>
-                            <h5>Email</h5>
-                            <tr><td></td><input type="email" name="email" class="form-control" placeholder="Email" value=""></td></tr>
+                        <label for="emailNameField" class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" placeholder="Email" value="">
                         </div>
                         <br>        
                         <div>
-                            <h5>Username</h5>
-                            <tr><td></td><input type="text" name="username" class="form-control" placeholder="Username" value=""></td></tr>
+                            <label for="usernameField" class="form-label">Username</label>
+                            <input type="text" name="username" class="form-control" placeholder="Username" value="">
                         </div>
                         <br> 
                         <div class="password1" style="float: left;">
-                            <h5>Password</h5>
+                        <label for="passwordField" class="form-label">Password</label>
                             <input type="password" name="password" class="form-control" placeholder="Password" style="width: 350px;">
                         </div>
                         <div class="password2" style="float: right;">
-                            <h5>Confirm Password</h5>
+                            <label for="password2Field" class="form-label">Confirm Password</label>
                             <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password" style="width: 350px;">
                         </div>
                         <br>

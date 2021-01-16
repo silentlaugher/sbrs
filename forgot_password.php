@@ -80,35 +80,38 @@
     }
 }
 ?>
-    <h1>Edynak Security Based Registration System</h1>
-    <hr>
-    <div class="container">
-        <section class="col col-lg-7">
-            <h2>Password Reset Form</h2><hr>
-
-            <div>
-                <?php if(isset($result)) echo $result; ?>
-                <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
+    <div class="resetContainer">
+        <div class="resetColumn">
+            <div class="resetHeader">
+                <h1>Edynak Security Based Registration System</h1>
+                <hr>
+                <h3>Password Reset Form</h3>
+                <div>
+                    <?php if(isset($result)) echo $result; ?>
+                    <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
+                </div>
             </div>
-            <div class="clearfix"></div>
-            <form action="" method="post">
-                <div class="form-group">
-                    <label for="emailField">Email:</label>
-                    <input type="text" name="email" class="form-control" id="emailField" placeholder="Your Email Address">
-                </div>
+            <div class="resetForm">
+                <div class="clearfix"></div>
+                <form action="" method="post">
+                    <div class="form-group">
+                        <label for="emailField">Email:</label>
+                        <input type="text" name="email" class="form-control" id="emailField" placeholder="Your Email Address">
+                    </div>
 
-                <div class="form-group">
-                    <label for="passwordField">New Password:</label>
-                    <input type="password" name="new_password" class="form-control" id="passwordField" placeholder="New Password">
-                </div>
+                    <div class="form-group">
+                        <label for="passwordField">New Password:</label>
+                        <input type="password" name="new_password" class="form-control" id="passwordField" placeholder="New Password">
+                    </div>
 
-                <div class="form-group">
-                    <label for="passwordField">Confirm Password:</label>
-                    <input type="password" name="confirm_password" class="form-control" id="passwordField" placeholder="Confirm Password">
-                </div>
-                <button type="submit" name="passwordResetBtn" class="btn btn-primary pull-right">Reset Password</button>
+                    <div class="form-group">
+                        <label for="passwordField">Confirm Password:</label>
+                        <input type="password" name="confirm_password" class="form-control" id="passwordField" placeholder="Confirm Password">
+                    </div>
+                    <button type="submit" name="passwordResetBtn" class="btn btn-primary pull-right">Reset Password</button>
+                    <p><a href="index.php">Back</a> </p>
             </form>
-        </section>
-        <p><a href="index.php">Back</a> </p>
+            </div>
+        </div>
     </div>
 <?php include_once 'partials/footers.php'; ?>
