@@ -105,12 +105,12 @@
                 <h1>Edynak Security Based Registration System</h1>
                 <hr>
                 <h3>Registration Form</h3>
-                <?php if(isset($result)) echo $result; ?>
-                <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
-
             </div>
-
             <div class="regForm">
+                <div>
+                    <?php if(isset($result)) echo $result; ?>
+                    <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
+                </div>
                 <form action="register.php" method="POST">
                     <table>
                         <div class="name" style="float: left;">

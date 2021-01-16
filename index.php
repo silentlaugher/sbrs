@@ -8,7 +8,7 @@
 
     <div class="flag">
         <h1>Edynak Security Based Registration System</h1>
-        <p class="lead">Powered by EdySmart.<br><br> All you get is a functional, feature loaded, secure registration and authentication system.</p><hr>
+        <p class="lead">Powered by EdySmart<br><br> All you get is a functional, feature loaded, secure registration and authentication system.</p><hr>
         <?php if(!isset($_SESSION['username'])): ?>
         <p class="lead">You are currently not signed in <a href="login.php">Log in</a> Not yet a member? <a href="register.php">Register here</a></p>
         <?php else: ?>

@@ -86,12 +86,12 @@
                 <h1>Edynak Security Based Registration System</h1>
                 <hr>
                 <h3>Password Reset Form</h3>
+            </div>
+            <div class="resetForm">
                 <div>
                     <?php if(isset($result)) echo $result; ?>
                     <?php if(!empty($form_errors)) echo show_errors($form_errors); ?>
                 </div>
-            </div>
-            <div class="resetForm">
                 <div class="clearfix"></div>
                 <form action="" method="post">
                     <div class="form-group">

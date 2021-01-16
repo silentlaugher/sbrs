@@ -8,6 +8,13 @@ body {
     text-align: center;
 }
 
+a:link {
+    color: white;
+}
+a:visited {
+    color: white;
+}
+
 /* login page */
 
 .logContainer{
@@ -102,7 +109,6 @@ body {
 
 .resetContainer .resetColumn .resetHeader {
     text-align: center;
-    align-items: center;
 }
 
 .resetContainer .resetColumn .resetHeader h3{
