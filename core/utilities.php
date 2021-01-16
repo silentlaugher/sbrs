@@ -115,9 +115,9 @@
     */
     function flashMessage($message, $passOrFail = "Fail"){
         if($passOrFail === "Pass"){
-            $data = "<p style='padding: 20px; border: 1px solid gray; color: green;'>{$message}</p>";
+            $data = "<div class='alert alert-success'>{$message}</p>";
         }else{
-            $data = "<p style='padding: 20px; border: 1px solid gray; color: red;'>{$message}</p>";
+            $data = "<div class='alert alert-danger'>{$message}</p>";
         }
         return $data;
     }

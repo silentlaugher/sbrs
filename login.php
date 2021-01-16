@@ -50,9 +50,10 @@
     
 ?>
     <div class="logContainer">
+        <section>
         <div class="logColumn">
             <div class="logHeader">
-            <h1>Edynak Security Based Registration System</h1>
+                <h1>Edynak Security Based Registration System</h1>
                 <hr>
                 <h3>Login Form</h3>
             </div>
@@ -64,7 +65,7 @@
                 <form action="login.php" method="POST">
                 <div>
                     <label for="emailField" class="form-label">Email or Username</label>
-                    <input type="text" class="form-control" name="email" id="emailField" placeholder="Enter your address or username">
+                    <input type="text" class="form-control" name="email" id="emailField" placeholder="Enter your email address or username">
                     <div id="emailMessage" class="form-text">We'll never share your email with anyone else.</div>
                 </div>
                 <br>
@@ -84,5 +85,6 @@
                 </form>
             </div>
         </div>
+        </section>
     </div> 
 <?php include_once 'partials/footers.php'; ?>
